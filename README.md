@@ -14,12 +14,14 @@ cd sentry-ops
 또는 수동 설치:
 
 ```bash
-# 1. 마켓플레이스 등록 + 설치
+# 1. Sentry Auth Token 생성: https://sentry.io/settings/auth-tokens/
+
+# 2. MCP 서버 등록
+claude mcp add -e SENTRY_AUTH_TOKEN=sntryu_YOUR_TOKEN --scope user sentry -- pnpm dlx @sentry/mcp-server --access-token sntryu_YOUR_TOKEN
+
+# 3. 플러그인 설치
 claude plugin marketplace add nathankim0/sentry-ops
 claude plugin install sentry-ops
-
-# 2. Sentry MCP 서버 등록 (OAuth 인증)
-claude mcp add --transport http sentry --scope user https://mcp.sentry.dev/mcp
 ```
 
 ## 스킬
@@ -50,7 +52,7 @@ claude mcp add --transport http sentry --scope user https://mcp.sentry.dev/mcp
 
 ## Sentry MCP 도구
 
-이 플러그인은 [Sentry 공식 Remote MCP 서버](https://docs.sentry.io/product/sentry-mcp/)를 사용합니다.
+이 플러그인은 [`@sentry/mcp-server`](https://www.npmjs.com/package/@sentry/mcp-server) (Sentry 공식 MCP 서버)를 사용합니다.
 
 주요 도구:
 - `search_issues` — 자연어 이슈 검색
@@ -64,7 +66,10 @@ claude mcp add --transport http sentry --scope user https://mcp.sentry.dev/mcp
 
 ## 인증
 
-OAuth 기반 인증으로, 처음 사용 시 브라우저에서 Sentry 로그인 후 권한을 승인하면 됩니다. 별도 토큰 생성이 필요 없습니다.
+Sentry User Auth Token 방식입니다.
+
+1. https://sentry.io/settings/auth-tokens/ 에서 토큰 생성
+2. `setup.sh` 실행 시 토큰 입력 (또는 수동으로 MCP 서버 등록)
 
 ## License
 
