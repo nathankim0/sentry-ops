@@ -1,0 +1,23 @@
+{
+  "name": "sentry-ops",
+  "owner": {
+    "name": "nathankim0",
+    "email": "nathankim0@github.com"
+  },
+  "metadata": {
+    "description": "Sentry MCP 서버 + 이슈 조사/검색 스킬 플러그인"
+  },
+  "plugins": [
+    {
+      "name": "sentry-ops",
+      "source": "./",
+      "description": "Sentry MCP 서버 + 이슈 조사/검색 스킬을 제공하는 Claude Code 플러그인",
+      "version": "1.0.0",
+      "author": {
+        "name": "nathankim0"
+      },
+      "keywords": ["sentry", "mcp", "error-tracking", "incident-investigation", "debugging"],
+      "strict": false
+    }
+  ]
+}

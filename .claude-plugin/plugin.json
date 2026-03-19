@@ -1,0 +1,14 @@
+{
+  "name": "sentry-ops",
+  "version": "1.0.0",
+  "description": "Sentry MCP 서버 + 이슈 조사/검색 스킬을 제공하는 Claude Code 플러그인",
+  "author": {
+    "name": "nathankim0",
+    "url": "https://github.com/nathankim0"
+  },
+  "repository": "https://github.com/nathankim0/sentry-ops",
+  "license": "MIT",
+  "keywords": ["sentry", "mcp", "error-tracking", "incident-investigation", "debugging"],
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills/"
+}
